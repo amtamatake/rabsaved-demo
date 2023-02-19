@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--MyBatis配置文件-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.example.mapper.ArticleMapper">
+
+    <resultMap id="ArticlePicture" type="org.example.dao.Article">
+        <id property="articleId" column="id" />
+        <result property="createDate" column="create_date" />
+        <result property="title" column="title" />
+        <result property="author" column="author" />
+        <result property="upLoader" column="uploader" />
+        <result property="viewCounts" column="view_counts" />
+        <result property="commentCounts" column="comment_counts" />
+        <result property="summary" column="summary" />
+        <result property="background" column="background" />
+        <result property="picture" column="picture" />
+    </resultMap>
+
+<!--    <select id="listArticle" resultMap="ArticlePicture">-->
+<!--        SELECT-->
+<!--            rabs_article.id-->
+<!--             ,rabs_article.create_date-->
+<!--             ,rabs_article.title-->
+<!--             ,rabs_article.author-->
+<!--             ,rabs_article.uploader-->
+<!--             ,rabs_article.view_counts-->
+<!--             ,rabs_article.comment_counts-->
+<!--             ,rabs_article.summary-->
+<!--             ,rabs_article_body.picture-->
+<!--        FROM rabs_article-->
+<!--                 LEFT JOIN rabs_article_body-->
+<!--                           ON rabs_article.id = rabs_article_body.article_id-->
+<!--    </select>-->
+
+    <select id="listArticle" resultMap="ArticlePicture">
+        SELECT * FROM `rabs_article`
+    </select>
+
+</mapper>
